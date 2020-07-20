@@ -1,0 +1,11 @@
+.clock-wrapper {
+    display: flex;
+    right: 0;
+    /* left: 80vw; */
+    justify-content: flex-end;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    margin-bottom: 3vh;
+
+    
+}
