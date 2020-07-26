@@ -83,7 +83,8 @@ export default class Auth extends Component {
                 headers: {"content-type": "application/json"},
                 body: JSON.stringify({
                     username: this.state.usernameInput,
-                    password: this.state.passwordInput
+                    password: this.state.passwordInput,
+                    location: this.state.passwordInput
                 })
             })
             .then(response => response.json())
