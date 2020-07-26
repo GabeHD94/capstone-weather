@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Weather from "./component/weather"
-import Google from "./component/googleSearch"
-import Date from "./component/date";
-import Clock from './clock'
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Auth from "../components/component/logins/auth";
 import { Spring } from 'react-spring/renderprops';
 
 
@@ -16,17 +15,14 @@ export default class App extends Component {
       >
         {props => (
           <div style={props}>
-            <div className='app'>
-              <div className="date-wrapper">
-                <Date />
-              </div>
-              <div className="clock-wrapper">
-                <Clock />
-              </div>
-              <Google />
-              <Weather />
-
+            <BrowserRouter>
+            <div>
+              <Switch>
+                <Route exact path="/" component={Auth} />
+                <Route path="/landing" component={Weather} />
+              </Switch>
             </div>
+            </BrowserRouter>
           </div>
         )}
       </Spring>

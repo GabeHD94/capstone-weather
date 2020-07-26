@@ -1,10 +1,9 @@
 body {
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("../assets/coolhd.jpg") ;
-  /* background-color: aqua; */
-  background-position: absolute;
-  /* height:900px; */
+  background-color: rgb(5, 13, 31);
+  
+  background-image: url("../assets/true.jpg");
 
   color: azure;
 
@@ -15,6 +14,7 @@ h2 {
   justify-content: center;
   align-content: center;
   font-family: 'Archivo Black', sans-serif;
+  cursor: context-menu;
   font-size: 10vw;
   background: linear-gradient(rgba(255, 255, 255, 0.6) 50%, transparent 75%);
   -webkit-background-clip: text;
@@ -50,7 +50,7 @@ h2 {
 }
 
 .searchBox input:hover {
-  width: 20vw;
+  width: 110px;
 }
 
 .searchBox input:focus {
@@ -110,7 +110,7 @@ h2 {
 
 }
 
-::placeholder { 
+.google ::placeholder { 
   font-family: 'Montserrat', sans-serif;
   color: white;
   /* opacity: .7; */
@@ -123,7 +123,8 @@ h2 {
   text-align: center;
   font-family: 'Archivo Black', sans-serif;
   font-size: 10vw;
-  background: linear-gradient(rgba(255, 255, 255, 0.6) 50%, transparent 75%);
+  cursor: context-menu;
+  background: linear-gradient(rgba(255, 255, 255, 0.8) 50%, transparent 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -151,7 +152,7 @@ h2 {
   padding: 2vh 6vw;
   background-color: rgba(0, 0, 0, 0.6);
   margin: 5px;
-  color: white;
+  /* color: white; */
 }
 .wind {
   font-size: 3rem;
@@ -159,7 +160,6 @@ h2 {
 
 .humidity {
   width: 12%;
-
   padding: 2vh 6vw 2vh 6vw;
   margin: 5px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -193,29 +193,38 @@ h2 {
 }
 
 @media (orientation: portrait) {
+
+  .google {
+    margin-top: 3vh;
+    margin-bottom: -6vh;
+  }
+
+  .weatherDetails {
+    flex-direction : column-reverse ;
+  }
   .windSpeed {
-    width: 100%;
+    width: 84%;
   }
   .wind {
     font-size: 2rem;
   }
   .humidity {
-    width: 100%;
+    width: 84%;
   }
   .humdata {
     font-size: 2rem;
   }
   .tempDetails {
-    width: 100%;
+    width: 86%;
   }
   .minsize {
     font-size: 2rem;
-    padding: 0vh 1vw 2vh 1vw;
+    padding: 0vh 2vw 2vh 1vw;
   }
   
   .maxsize {
     font-size: 2rem;
-    padding: 0vh 1vw 2vh 1vw;
+    padding: 0vh 2vw 2vh 1vw;
   }
   h1 {
     font-size: 20px;
@@ -223,7 +232,7 @@ h2 {
   body {
     height: 900px;
   }
-  .weatherApp {
+  .weatherApp .date-wrapper .clock-wrapper{
     margin-top: -90px;
   }
 }

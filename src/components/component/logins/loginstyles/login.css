@@ -1,0 +1,53 @@
+.login-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.login-wrap form {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 70px;
+    padding: 6vh 2vw 6vh 2vw;
+    top: 0;
+    left: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    opacity: 0.6;
+}
+
+.login-wrap form input {
+    border: none;
+    color: white;
+    margin: 0px 0px 2vh;
+    width:90%;
+    outline: none;
+    background: none;
+    border-bottom: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;  
+    background-color: black;
+  }
+
+  .login-wrap form ::placeholder { 
+    color: white;
+  
+  }
+
+  .login-wrap form button {
+    background:white;
+    border: none;
+    border-radius: 70px;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: .8;
+}
+
+.login-wrap form p {
+    cursor: pointer;
+}
