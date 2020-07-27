@@ -16,6 +16,7 @@ export default class Auth extends Component {
             usernameInput: "",
             passwordInput: "",
             passwordConfirmInput: "",
+            locationInput: "",
             errorMessage: "None"
         }
         this.handleClick = this.handleClick .bind(this)
@@ -26,7 +27,7 @@ export default class Auth extends Component {
 
     handleLogin(event) {
         event.preventDefault()
-        fetch("http://127.0.0.1:5000/user/verification", {
+        fetch("https://gfs-weather-api.herokuapp.com/user/verification", {
             method: "POST",
             headers: {"content-type": "application/json"},
             body: JSON.stringify({
@@ -78,13 +79,13 @@ export default class Auth extends Component {
             this.setState({ errorMessage: "dont match" })
         }
         else {
-            fetch("http://127.0.0.1:5000/user/create", {
+            fetch("https://gfs-weather-api.herokuapp.com/user/create", {
                 method: "POST",
                 headers: {"content-type": "application/json"},
                 body: JSON.stringify({
                     username: this.state.usernameInput,
                     password: this.state.passwordInput,
-                    location: this.state.passwordInput
+                    location: this.state.locationInput
                 })
             })
             .then(response => response.json())
@@ -109,15 +110,12 @@ export default class Auth extends Component {
         }
     }
 
-    handleLogout() {
-        Cookies.remove("username")
-        this.props.history.push("/")
-    }
 
 
     render() {
         return (
             <div className="auth-wrapper">
+
                 {this.state.authSwitch === "Login" ? 
                 <Login
                 handleChange={this.handleChange} 
@@ -133,6 +131,7 @@ export default class Auth extends Component {
                 handleChange={this.handleChange} 
                 handleSignup={this.handleSignup}
                 usernameInput={this.state.usernameInput}
+                locationInput={this.state.locationInput}
                 passwordInput={this.state.passwordInput}
                 passwordConfirmInput={this.state.passwordConfirmInput}
                 errorMessage={this.state.errorMessage}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Google from "../component/googleSearch"
 import Date from "../component/date";
+
 import Clock from '../clock'
 import { Spring } from 'react-spring/renderprops';
 import Cookies from "js-cookie"
@@ -21,35 +22,26 @@ function Data(props) {
 
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
-  const [currentUser, setCurrentUser] = useState("")
-  const [test, setTest] = useState(true)
 
   const search = event => {
     if (event.key === "Enter") {
-      fetch(`${api.base}weather?q=${currentUser.location}&units=imperial&APPID=${api.key}`)
+      fetch(`${api.base}weather?q=${query}&units=imperial&APPID=${api.key}`)
         .then(response => response.json())
         .then(result => {
           setWeather(result);
           setQuery('');
           console.log(result)
-          Cookies.set("weather", useState.weather)
-          console.log(Cookies.get(weather))
         })
     }
   }
-
-
-  useEffect( () => {
-    // api request for current user
-    // set a piece of state that holds the current user setCurrentUser(response.data) (however this is parsed)
-  }, [])
-
    
 
   return (
 
     <div className="weatherdata">
+
     <div className="weatherApp">
+
       <main className="enter">
         <div className="searchBox">
           <input
@@ -92,6 +84,7 @@ function Data(props) {
 
                       <div className="location-box">
                         <div className='location'>{weather.name}
+                              
                         </div>
                         
                       </div>
