@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Clockstyle from '../clock.css'
+import Clock from 'react-live-clock';
 import Google from "../component/googleSearch"
 import Date from "../component/date";
-
-import Clock from '../clock'
 import { Spring } from 'react-spring/renderprops';
 import Cookies from "js-cookie"
 
@@ -14,10 +14,34 @@ const api = {
 
 
 
-function Data(props) {
+const Data = props => {
   if (!Cookies.get("username")) {
     props.history.push("/")
+    console.log(props.history)
   }
+
+  // if (Cookies.remove("username")) {
+  //   this.props.history.push("/");
+  //   location.reload()
+  // }
+
+  const handleLogout = event => {
+    event.preventDefault()
+    Cookies.remove("username")
+    props.history.push("/")
+  }
+
+  // const defaultloc = props => {
+  //   if (Cookies.get("username")) {
+  //     fetch(`${api.base}weather?q=${(Cookies.get("location"))}&units=imperial&APPID=${api.key}`)
+  //       .then(response => response.json())
+  //       .then(result => {
+  //         setWeather(result);
+  //         setQuery('');
+  //         console.log(result)
+  //       })
+  //     }
+  // }
 
 
   const [query, setQuery] = useState('');
@@ -40,6 +64,9 @@ function Data(props) {
 
     <div className="weatherdata">
       <div className="weatherApp">
+        <div className="logoutbtn">
+        <button onClick={handleLogout}>logout</button>
+        </div>
         <main className="enter">
           <div className="searchBox">
             <input
@@ -65,7 +92,7 @@ function Data(props) {
                           <Date />
                         </div>
                         <div className="clock-wrapper">
-                          <Clock />
+                        <Clock format={'hh:mm:a'} ticking={true} />
                         </div>
                         <div className="hi-wrap">
                           <h1>Hi {Cookies.get("username")}!</h1>
@@ -127,7 +154,7 @@ function Data(props) {
                 )
                 }
               </Spring >
-            ) : (<h2>Enter a city</h2>)}
+            ) : (<div className="entercity"><h2>Enter a city</h2></div>)}
           </div>
         </main>
       </div>

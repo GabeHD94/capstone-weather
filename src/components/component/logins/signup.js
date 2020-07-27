@@ -35,13 +35,13 @@ export default function Signup(props) {
                     value={props.passwordConfirmInput}
                     onChange={props.handleChange} required />
                 <p className="error" >{errorMessage[props.errorMessage]}</p>
-                {/* <input
+                <input
                     type="location"
                     name="locationInput"
                     placeholder="What is your City"
                     value={props.locationInput}
                     onChange={props.handleChange} required />
-                <p className="error" >{errorMessage[props.errorMessage]}</p> */}
+                <p className="error" >{errorMessage[props.errorMessage]}</p>
                 <p onClick={props.handleClick}>Log in</p>
 
                 <button>Sign Up</button>

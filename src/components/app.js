@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Weather from "./component/weather"
-import Location from "./component/location"
+// import Location from "./component/logoutbtn"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Auth from "../components/component/logins/auth";
 import { Spring } from 'react-spring/renderprops';

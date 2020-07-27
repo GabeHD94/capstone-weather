@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Auth from "./logins/auth"
 import Cookies from "js-cookie"
 // import { response } from 'express'
 
@@ -9,26 +10,19 @@ export default class location extends Component {
         this.state = {
 
         }
-        this.handleLogout = this.handleLogout .bind(this)
-
+        this.handleLogout = this.handleLogout.bind(this)
     }
 
-
-
 handleLogout() {
-   if (Cookies.remove("username")) {
-    this.props.history.push("/");
-    location.reload()
+    Cookies.remove("username")
+    this.props.history.push("/")
 }
-}
+
 
     render() {
         return (
             <div>
-                <button onClick={this.handleLogout}
-                >logout</button>
-
-
+                <button onClick={this.handleLogout}>logout</button>
             </div>
         )
     }

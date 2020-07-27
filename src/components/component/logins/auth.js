@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Cookies from "js-cookie"
 import Signup from "./signup";
 import Login from "./login";
+import Weather from "../weather"
 
 export default class Auth extends Component {
     constructor(props) {
@@ -18,12 +19,34 @@ export default class Auth extends Component {
             passwordConfirmInput: "",
             locationInput: "",
             errorMessage: "None"
+              
         }
         this.handleClick = this.handleClick .bind(this)
         this.handleChange = this.handleChange .bind(this)
         this.handleSignup = this.handleSignup .bind(this)
         this.handleLogin = this.handleLogin .bind(this)
+
+      
     }
+
+
+
+    defaultloc(props) {
+        const api = {
+            key: "dbe4e6036b179b241f68b078f58c0c5a",
+            base: "https://api.openweathermap.org/data/2.5/"
+          }
+        if (Cookies.get("username")) {
+          fetch(`${api.base}weather?q=${(Cookies.get("location"))}&units=imperial&APPID=${api.key}`)
+            .then(response => response.json())
+            .then(result => {
+            //   setWeather(result);
+            //   setQuery('');
+              console.log(result)
+            })
+          }
+      }
+    
 
     handleLogin(event) {
         event.preventDefault()
@@ -45,8 +68,11 @@ export default class Auth extends Component {
             else {
                 this.setState({ errorMessage: "None" })
                 Cookies.set("username", this.state.usernameInput)
-                console.log(Cookies.get("username"))
                 this.props.history.push("/landing")
+                Cookies.get("location", this.state.location)
+                // console.log(Cookies.get("location"))
+                this.props.history.push("/landing")
+                this.defaultloc()
             }
         })
         .catch(error => {
@@ -99,6 +125,11 @@ export default class Auth extends Component {
                     Cookies.set("username", this.state.usernameInput)
                     console.log(Cookies.get("username"))
                     this.props.history.push("/landing")
+                    Cookies.set("location", this.state.locationInput)
+                    console.log(Cookies.get("location"))
+                    this.props.history.push("/landing")
+                    this.defaultloc()
+
                 }
             })
             .catch(error => {
