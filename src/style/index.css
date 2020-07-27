@@ -30,6 +30,11 @@ h2 {
   
 }
 
+.hi-wrap {
+  font-size: 15px;
+  text-align: center;
+  opacity: 0.8;
+}
 
 
 .searchBox input {
@@ -85,7 +90,7 @@ h2 {
   display: grid;
   justify-content: center;
   align-content: center;
-  margin-bottom: 1vh;
+  margin-bottom: -4vh;
   
 }
 
@@ -220,6 +225,10 @@ h2 {
   .minsize {
     font-size: 2rem;
     padding: 0vh 2vw 2vh 1vw;
+  }
+
+  .hi-wrap {
+    color: black;
   }
   
   .maxsize {
