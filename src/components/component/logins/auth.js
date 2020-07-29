@@ -146,6 +146,7 @@ export default class Auth extends Component {
     render() {
         return (
             <div className="auth-wrapper">
+                <h1>Sign up to test functionality!</h1>
 
                 {this.state.authSwitch === "Login" ? 
                 <Login
@@ -167,7 +168,6 @@ export default class Auth extends Component {
                 passwordConfirmInput={this.state.passwordConfirmInput}
                 errorMessage={this.state.errorMessage}
                 handleClick={this.handleClick}
-
                 />}
                 
             </div>

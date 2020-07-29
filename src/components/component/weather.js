@@ -7,23 +7,18 @@ import { Spring } from 'react-spring/renderprops';
 import Cookies from "js-cookie"
 
 
+
+
 const api = {
-  key: "dbe4e6036b179b241f68b078f58c0c5a",
+  key:  "dbe4e6036b179b241f68b078f58c0c5a",
   base: "https://api.openweathermap.org/data/2.5/"
 }
-
-
 
 const Data = props => {
   if (!Cookies.get("username")) {
     props.history.push("/")
     console.log(props.history)
   }
-
-  // if (Cookies.remove("username")) {
-  //   this.props.history.push("/");
-  //   location.reload()
-  // }
 
   const handleLogout = event => {
     event.preventDefault()
@@ -36,7 +31,7 @@ const Data = props => {
   //     fetch(`${api.base}weather?q=${(Cookies.get("location"))}&units=imperial&APPID=${api.key}`)
   //       .then(response => response.json())
   //       .then(result => {
-  //         setWeather(result);
+  //         setWeather(result); 
   //         setQuery('');
   //         console.log(result)
   //       })
@@ -65,7 +60,7 @@ const Data = props => {
     <div className="weatherdata">
       <div className="weatherApp">
         <div className="logoutbtn">
-        <button onClick={handleLogout}>logout</button>
+        <button onClick={handleLogout}>Log out</button>
         </div>
         <main className="enter">
           <div className="searchBox">

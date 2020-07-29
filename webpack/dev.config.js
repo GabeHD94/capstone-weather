@@ -88,7 +88,9 @@ module.exports = webpackMerge(webpackCommon, {
       warnings: true,
       errors: true
     },
+    
     proxy: proxyRules
-  }
+  },
+
 
 });

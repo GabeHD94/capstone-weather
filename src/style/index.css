@@ -121,6 +121,11 @@ h2 {
   cursor: pointer;
   opacity: .7;
 }
+.auth-wrapper h1 {
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+}
 
 .google ::placeholder {
   font-size: 30px;
@@ -142,7 +147,7 @@ h2 {
   font-family: 'Archivo Black', sans-serif;
   font-size: 10vw;
   cursor: context-menu;
-  background: linear-gradient(rgba(255, 255, 255, 0.8) 50%, transparent 70%);
+  background: linear-gradient(rgba(255, 255, 255, 0.7) 30%, transparent 75%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
